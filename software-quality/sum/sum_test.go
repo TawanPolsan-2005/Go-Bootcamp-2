@@ -3,16 +3,22 @@ package sum
 import "testing"
 
 func TestSum(t *testing.T) {
-	t.Run("Should return 3 when 1 and 2", func(t *testing.T) {
-		//Arrange
+	t.Run("Should multi parameters", func(t *testing.T) {
+		got := sum([]int{}...)
+
 		want := 3
 
-		//Act
-		got := sum(1, 2)
-
-		//Assert
 		if got != want {
 			t.Errorf("sum(1, 2) = %d; want 3", got)
+		}
+	})
+
+	t.Run("including sign integer", func(t *testing.T) {
+		want := 7
+		xs := []int{2, 3, 3, -1}
+		got := sum(xs...)
+		if got != want {
+			t.Error("Expected", 8, "Got, got")
 		}
 	})
 
